@@ -1,0 +1,85 @@
+Практика 8 (12ноя)
+1) Заголовок файла
+
+import argparse
+import random
+
+def head(name):
+
+    try:
+        with open(name, 'r') as f:
+            with open(name, 'r') as f:
+                nums = f.read().splitlines()
+                for i in range(10): print( (nums[i]))
+                
+    except IOError: print("файл не существует")
+    except Exception: print("отсутсвует аргумент")
+    
+    
+2) Конкатенация файлов.    
+    
+def konkatenation(a, b):
+
+    try:
+        with open(a, 'r') as f:    nums = f.read().splitlines()
+        for i in nums:    print(i)
+        with open(b, 'r') as f:    nums = f.read().splitlines()
+        for i in nums:    print(i)
+        
+    except IOError: print("невозможна конкатенация")
+    except Exception: print("команда без аргументов")
+    
+ 3) нумерация строк.   
+    
+def str_num(a, new_name):
+
+    try:
+        texx=""
+        k = 1
+        with open(a, 'r') as f:  nums = f.read().splitlines()
+        
+        for i in nums:
+            texx+=str(k)+": "+i+"\n"
+            k+=1
+        with open(new_name, 'w') as f: f.write(texx)
+        
+    except IOError: print("файл не существует")
+    except Exception: print("отсутствует аргумент")
+    
+4) самое длинное слово в файле.    
+    
+def long_word(m):
+
+    try:
+        texx=[]
+        with open(m, 'r') as f: nums = f.read().splitlines()
+        for i in nums:  texx.extend(i.split())
+        texx=list(reversed(sorted(texx, key=len)))
+        len_max=len(texx[0])
+        
+        for i in texx:
+            if len(i)==len_max: print(i)
+            else:   break
+            
+    except IOError: print("файл не существует")
+    except Exception: print("отсутствует аргумент")
+    
+ 5) Генерация пароля:   
+    
+def password(w):
+
+    try:
+        texx=[]
+        with open(w, 'r') as f:    nums = f.read().splitlines()
+        for i in nums:  texx.extend(i.replace("\n", '').strip().split(", "))
+        count=len(texx)
+        texx=random.sample(texx, 2)
+        new_texx=[i.title()  for i in texx]
+        [print(i, end="") for i in new_texx]
+        
+    except IOError: print("Файл не найден")
+    except Exception:   print("Отсутствует аргумент")
+    
+    
+    
+    --
