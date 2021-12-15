@@ -20,32 +20,32 @@ start_time = time.time()
 n = arr[-1]
 line_search(arr, n)
 line_time = time.time() - start_time
-print("Линейный поиск: ", line_time, "секунд")
+print("Линейный поиск: ", line_time, "с.")
 
 * 2) *
 
 def bin_search(arr, n):
     arr = sorted(arr)
-    #i = len(arr)//2 #индекс серединного элимента
-    #k = arr[i] #значениесерединногоэдимента
+    #i = len(arr)//2 
+    #k = arr[i] *значение серединного элемента*
     #print(arr)
-    while True: # пока серединное значение не равно искомому
+    while True: 
         i = len(arr)//2
-        k = arr[i] #значениесерединного
-        if n > k:   arr = arr[i:]# если искомое больше серединного
+        k = arr[i] 
+        if n > k:   arr = arr[i:] 
         elif n < k: arr = arr[:i]
         elif k == n:    break
 start_time = time.time()
 n = max(arr)
 bin_search(arr, n)
 bin_time = time.time() - start_time
-print("Бинарный поиск: ", bin_time, "секунд")
+print("Бинарный: ", bin_time, "с.")
 
 * 3) *
 
-def recurs(arr, n):
+def recurs_search(arr, n):
     i = len(arr)//2
-    k = arr[i] #значениесерединног
+    k = arr[i] 
     if n > k:   return recurs(arr[i:], n)
     elif n < k: return recurs(arr[:i], n)
     elif k == n:    return True
@@ -53,4 +53,4 @@ start_time = time.time()
 arr=sorted(arr)
 recurs(arr, n)
 recurs_time = (time.time() - start_time)
-print("Бинарный поиск по рекурсии: ", recurs_time, "cекунд")
+print("Рекурсивный: ", recurs_time, "c.")
