@@ -6,7 +6,7 @@ import sys
 
 
 arr = []
-lens = int(input("введите длину массива: 10^ "))
+lens = int(input("длина масива: 10^ "))
 [arr.append(random.randint(1, 10 ** lens)) for i in range(10 ** lens)]
 sys.setrecursionlimit(10 ** lens)
 
