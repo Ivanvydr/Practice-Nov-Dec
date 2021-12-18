@@ -1,0 +1,53 @@
+практика 10
+————————————
+
+import sys
+import time
+sys.setrecursionlimit(30000)
+
+# 1,2) рекурсивный алгоритм
+
+def fib_line(n):
+
+    if n in (1, 2):
+        return 1
+    return fib_line(n - 1) + fib_line(n - 2)
+    
+ # сложность O(2^n)
+    
+n = int(input("введите номер числа фибоначи для линейного рекурсивного алгоритма"))
+first = time.time()
+print(fib_line(n))
+seconds = time.time()
+print(seconds-first)
+
+
+# 3,4) алгоритм с помощью мемоизации/ запоминать промежуточные вычисления
+
+def fib_cache(a, n):   # Сложность O(n)
+
+    a.append(a[-1]+a[-2])
+
+    if len(a)==n:   return (a[-1])
+    else:   return fib_cache(a, n)
+    
+n = int(input("введите номер числа фибоначи для рекурсивного алгоритма с кешем"))
+first = time.time()
+print(fib_cache(a,n))
+seconds = time.time()
+print(seconds-first)
+
+
+# 5) переписать решение на циклах
+
+def fib_loop(a,n):
+    while len(a)!=n: a.append(a[-1]+a[-2])
+    return(a[-1])
+
+a=[1,1]
+n = int(input("введите номер числа фибоначи для цикличного алгоритма"))
+first = time.time()
+print(fib_loop(a, n))
+
+seconds = time.time()
+print(seconds-first)
